@@ -11,4 +11,4 @@ ParsBERT:
 <br/>
 XLM-RoBERTa:
 <br/>
-ParsT5:
+**ParsT5**: The model was too big to finetune on colab, so for just one epoch, I had to split training data to 4 batches and train the model in four steps. accuracy after one epoch was 0.462 and model didn't converge so better results can be achieved if we had access to more computational resources. link to model: https://drive.google.com/drive/folders/1iKHu4Wr8_5MNysVfBd8PhROzANSQyBOm?usp=sharing

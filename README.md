@@ -8,6 +8,7 @@ Documentation: https://docs.google.com/document/d/1GRqZdRClQduQxV5ld0vCRSdLCTcN8
 Trained models: (put the links to trained models here)
 <br/>
 **ParsBERT**: [ParsBERT Model](https://drive.google.com/drive/folders/10j3KSd0zu4eM94yNKH7B-4grd5PhkeT_?usp=sharing)
+**mBERT**: [mBERT Model](https://drive.google.com/drive/folders/1Pk4U5XfXuT0zgLPCnxdZN-h4fDA_qzro?usp=sharing)
 <br/>
 XLM-RoBERTa:
 <br/>

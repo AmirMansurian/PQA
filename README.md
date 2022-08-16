@@ -5,15 +5,15 @@ Contributors : Amir Mansourian - Elnaz Rahmati - Zeinab Taghavi - Sepehr Ghobadi
 
 Documentation: https://docs.google.com/document/d/1GRqZdRClQduQxV5ld0vCRSdLCTcN85yAr-RdA8X2tGw/edit?usp=sharing
 
-Trained models: (put the links to trained models here)
+Trained models: 
 <br/>
 **ParsBERT**: [ParsBERT Model](https://drive.google.com/drive/folders/10j3KSd0zu4eM94yNKH7B-4grd5PhkeT_?usp=sharing)
 <br/>
 **mBERT**: [mBERT Model](https://drive.google.com/drive/folders/1Pk4U5XfXuT0zgLPCnxdZN-h4fDA_qzro?usp=sharing)
 <br/>
-XLM-RoBERTa:
+**ALBERT**: [ALBERT Model](https://drive.google.com/drive/folders/1BXE0RxNww5aj5BvtniDy_aY6CGXdh7eS?usp=sharing)
 <br/>
-**ParsT5**: The model was too big to finetune on colab, so for just one epoch, I had to split training data to 4 batches and train the model in four steps. accuracy after one epoch was 0.462 and model didn't converge so better results can be achieved if we had access to more computational resources. You can find a tutorial on how to use this model in this path: Models/ParsT5_test.ipynb and finally link to model: https://drive.google.com/drive/folders/1iKHu4Wr8_5MNysVfBd8PhROzANSQyBOm?usp=sharing
+**ParsT5**:  [ParsT5 Model](https://drive.google.com/drive/folders/1iKHu4Wr8_5MNysVfBd8PhROzANSQyBOm?usp=sharing)
 
 
 

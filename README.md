@@ -7,7 +7,7 @@ Documentation: https://docs.google.com/document/d/1GRqZdRClQduQxV5ld0vCRSdLCTcN8
 
 Trained models: (put the links to trained models here)
 <br/>
-**ParsBERT**: https://drive.google.com/drive/folders/1285nC0-FBqXp4zczSJGTBBFFTBy1hhPO?usp=sharing
+**ParsBERT**: https://drive.google.com/drive/u/1/folders/10j3KSd0zu4eM94yNKH7B-4grd5PhkeT_
 <br/>
 XLM-RoBERTa:
 <br/>

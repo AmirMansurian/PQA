@@ -1,0 +1,52 @@
+{
+  "builder_name": null,
+  "citation": "",
+  "config_name": null,
+  "dataset_size": null,
+  "description": "",
+  "download_checksums": null,
+  "download_size": null,
+  "features": {
+    "context": {
+      "dtype": "string",
+      "id": null,
+      "_type": "Value"
+    },
+    "question": {
+      "dtype": "string",
+      "id": null,
+      "_type": "Value"
+    },
+    "answers": {
+      "answer_start": {
+        "feature": {
+          "dtype": "int64",
+          "id": null,
+          "_type": "Value"
+        },
+        "length": -1,
+        "id": null,
+        "_type": "Sequence"
+      },
+      "text": {
+        "feature": {
+          "dtype": "string",
+          "id": null,
+          "_type": "Value"
+        },
+        "length": -1,
+        "id": null,
+        "_type": "Sequence"
+      }
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "post_processed": null,
+  "post_processing_size": null,
+  "size_in_bytes": null,
+  "splits": null,
+  "supervised_keys": null,
+  "task_templates": null,
+  "version": null
+}

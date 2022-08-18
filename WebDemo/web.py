@@ -7,6 +7,8 @@ import io
 import nbformat
 from PIL import Image
 from datasets import load_from_disk
+import os
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 st.set_page_config(layout="wide")
 
@@ -48,7 +50,7 @@ def load_models(models):
     for idx, model in enumerate(models):
         latest_iteration.text(f'Loading {model}')
         bar.progress((idx + 1)/len(models))
-        module = imp.load_source(model, "./Web Demo/"+model+"api.py")
+        module = imp.load_source(model, "./WebDemo/"+model+"api.py")
         modelClass = getattr(module, model)
         predictors.append(modelClass())
     return predictors
@@ -58,7 +60,7 @@ def load_dataset():
     dataset = load_from_disk("./Datasets/test.hf").shuffle(seed=42)
     return dataset
 
-models = ["ParsBERT", "ALBERT", "MBERT", "ParsT5"] #, "Ensemble"]
+models = ["ParsBERT", "ALBERT", "MBERT", "ParsT5", "Ensemble"]
 
 predictors = load_models(models)
 bar.empty()
@@ -122,8 +124,8 @@ with tab1.form("my_form", clear_on_submit=False):
     submitted = st.form_submit_button("Submit")
     if submitted or ('submitted' in st.session_state and st.session_state.submitted):
         st.session_state.submitted = False
-        selected_prediction = predictors[selected_model_idx](context, question)[0]
-        cmp_prediction = predictors[cmp_model_idx](context, question)[0]
+        selected_prediction = predictors[selected_model_idx](question, context)[0]
+        cmp_prediction = predictors[cmp_model_idx](question, context)[0]
         if do_compare:
             col1, col2 = st.columns(2)
 
@@ -133,42 +135,42 @@ with tab1.form("my_form", clear_on_submit=False):
             with col2:
                 st.text_area(label=f"{models[cmp_model_idx]}'s Answer:", value=(cmp_prediction if cmp_prediction!="" else "بدون پاسخ"))
         else:
-            st.text_area(label=f"{models[selected_model_idx]}'s Answer:", value=(selected_prediction if selected_prediction!="" else "بدون پاسخ"))
+            st.text_area(label=f"{models[selected_model_idx]}'s Answer:", value=selected_prediction)#(selected_prediction if selected_prediction!="" else "بدون پاسخ"))
 
 
 
 ############ Code tab ###############
 
-notebooks = ["./Models/ParsBERT.ipynb", "./Models/albert.ipynb", "./Models/mbert.ipynb", "./Models/ParsT5.ipynb", "./Models/ensemble.ipynb"]
+# notebooks = ["./Models/ParsBERT.ipynb", "./Models/albert.ipynb", "./Models/mbert.ipynb", "./Models/ParsT5.ipynb", "./Models/ensemble.ipynb"]
 
-nb: nbformat.notebooknode.NotebookNode = nbformat.read(notebooks[selected_model_idx], as_version=4)
+# nb: nbformat.notebooknode.NotebookNode = nbformat.read(notebooks[selected_model_idx], as_version=4)
 
-for cell in nb.cells:
-    cell_container = tab2.container()
+# for cell in nb.cells:
+#     cell_container = tab2.container()
 
-    left_col, right_col = cell_container.columns((3, 1))
+#     left_col, right_col = cell_container.columns((3, 1))
 
-    with left_col:
-        if cell["cell_type"] == "markdown":
-            tab2.markdown(cell["source"])
-        elif cell["cell_type"] == "code":
-            tab2.code(cell["source"])
+#     with left_col:
+#         if cell["cell_type"] == "markdown":
+#             tab2.markdown(cell["source"])
+#         elif cell["cell_type"] == "code":
+#             tab2.code(cell["source"])
 
-    if "outputs" not in cell:
-        continue
+#     if "outputs" not in cell:
+#         continue
 
-    with right_col:
-        for output in cell["outputs"]:
-            if output["output_type"] == "stream":
-                tab2.text(output["text"])
-            elif output["output_type"] == "display_data" or output["output_type"] == "execute_result":
-                output_data = output["data"]
-                if "text/plain" in output_data:
-                    tab2.text(output_data["text/plain"])
-                if "image/png" in output_data:
-                    image_data = base64.b64decode(output_data["image/png"])
-                    tab2.image(Image.open(io.BytesIO(image_data)))
-                if "application/json" in output_data:
-                    tab2.json(output_data["application/json"])
-            elif output["output_type"] == "error":
-                tab2.error(f'{output["ename"]} {output["evalue"]} /n {"/n".join(output["traceback"])}')
+#     with right_col:
+#         for output in cell["outputs"]:
+#             if output["output_type"] == "stream":
+#                 tab2.text(output["text"])
+#             elif output["output_type"] == "display_data" or output["output_type"] == "execute_result":
+#                 output_data = output["data"]
+#                 if "text/plain" in output_data:
+#                     tab2.text(output_data["text/plain"])
+#                 if "image/png" in output_data:
+#                     image_data = base64.b64decode(output_data["image/png"])
+#                     tab2.image(Image.open(io.BytesIO(image_data)))
+#                 if "application/json" in output_data:
+#                     tab2.json(output_data["application/json"])
+#             elif output["output_type"] == "error":
+#                 tab2.error(f'{output["ename"]} {output["evalue"]} /n {"/n".join(output["traceback"])}')

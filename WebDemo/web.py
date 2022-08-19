@@ -141,36 +141,36 @@ with tab1.form("my_form", clear_on_submit=False):
 
 ############ Code tab ###############
 
-# notebooks = ["./Models/ParsBERT.ipynb", "./Models/albert.ipynb", "./Models/mbert.ipynb", "./Models/ParsT5.ipynb", "./Models/ensemble.ipynb"]
+notebooks = ["./Models/ParsBERT.ipynb", "./Models/albert.ipynb", "./Models/mbert.ipynb", "./Models/ParsT5.ipynb", "./Models/ensemble.ipynb"]
 
-# nb: nbformat.notebooknode.NotebookNode = nbformat.read(notebooks[selected_model_idx], as_version=4)
+nb: nbformat.notebooknode.NotebookNode = nbformat.read(notebooks[selected_model_idx], as_version=4)
 
-# for cell in nb.cells:
-#     cell_container = tab2.container()
+for cell in nb.cells:
+    cell_container = tab2.container()
 
-#     left_col, right_col = cell_container.columns((3, 1))
+    left_col, right_col = cell_container.columns((3, 1))
 
-#     with left_col:
-#         if cell["cell_type"] == "markdown":
-#             tab2.markdown(cell["source"])
-#         elif cell["cell_type"] == "code":
-#             tab2.code(cell["source"])
+    with left_col:
+        if cell["cell_type"] == "markdown":
+            tab2.markdown(cell["source"])
+        elif cell["cell_type"] == "code":
+            tab2.code(cell["source"])
 
-#     if "outputs" not in cell:
-#         continue
+    if "outputs" not in cell:
+        continue
 
-#     with right_col:
-#         for output in cell["outputs"]:
-#             if output["output_type"] == "stream":
-#                 tab2.text(output["text"])
-#             elif output["output_type"] == "display_data" or output["output_type"] == "execute_result":
-#                 output_data = output["data"]
-#                 if "text/plain" in output_data:
-#                     tab2.text(output_data["text/plain"])
-#                 if "image/png" in output_data:
-#                     image_data = base64.b64decode(output_data["image/png"])
-#                     tab2.image(Image.open(io.BytesIO(image_data)))
-#                 if "application/json" in output_data:
-#                     tab2.json(output_data["application/json"])
-#             elif output["output_type"] == "error":
-#                 tab2.error(f'{output["ename"]} {output["evalue"]} /n {"/n".join(output["traceback"])}')
+    with right_col:
+        for output in cell["outputs"]:
+            if output["output_type"] == "stream":
+                tab2.text(output["text"])
+            elif output["output_type"] == "display_data" or output["output_type"] == "execute_result":
+                output_data = output["data"]
+                if "text/plain" in output_data:
+                    tab2.text(output_data["text/plain"])
+                if "image/png" in output_data:
+                    image_data = base64.b64decode(output_data["image/png"])
+                    tab2.image(Image.open(io.BytesIO(image_data)))
+                if "application/json" in output_data:
+                    tab2.json(output_data["application/json"])
+            elif output["output_type"] == "error":
+                tab2.error(f'{output["ename"]} {output["evalue"]} /n {"/n".join(output["traceback"])}')

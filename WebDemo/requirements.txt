@@ -1,0 +1,5 @@
+nbformat
+datasets
+transformers
+torch
+pandas

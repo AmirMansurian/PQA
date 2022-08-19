@@ -145,7 +145,7 @@ with tab1.form("my_form", clear_on_submit=False):
 
 ############ Code tab ###############
 
-notebooks = ["./Models/ParsBERT.ipynb", "./Models/albert.ipynb", "./Models/mbert.ipynb", "./Models/ParsT5.ipynb", "./Models/ensemble.ipynb"]
+notebooks = ["./Models/ParsBERT.ipynb", "./Models/albert.ipynb", "./Models/mbert.ipynb", "./Models/ensemble.ipynb"] # "./Models/ParsT5.ipynb" before ensemble
 
 nb: nbformat.notebooknode.NotebookNode = nbformat.read(notebooks[selected_model_idx], as_version=4)
 

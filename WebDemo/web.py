@@ -8,6 +8,7 @@ import nbformat
 from PIL import Image
 from datasets import load_from_disk
 import os
+from Ensembleapi import Ensemble
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 st.set_page_config(layout="wide")
@@ -60,10 +61,13 @@ def load_dataset():
     dataset = load_from_disk("./Datasets/test.hf").shuffle(seed=42)
     return dataset
 
-models = ["ParsBERT", "ALBERT", "MBERT", "ParsT5", "Ensemble"]
+models = ["ParsBERT", "ALBERT", "MBERT"]#, "ParsT5"]
 
 predictors = load_models(models)
 bar.empty()
+
+models += ["Ensemble"]
+predictors.append( Ensemble(predictors) )
 
 dataset = load_dataset()
 

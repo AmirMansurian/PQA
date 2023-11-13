@@ -5,7 +5,7 @@ Persian QesutionAnswering
 
 Contributors : Amir Mansourian - Elnaz Rahmati - Zeinab Taghavi - Sepehr Ghobadi - Vida Ramezanian
 
-Documentation: [Farsi](https://docs.google.com/document/d/1GRqZdRClQduQxV5ld0vCRSdLCTcN85yAr-RdA8X2tGw/edit?usp=sharing)  [English](https://drive.google.com/file/d/1jovO0tzp3wQEpfthIY5dbDZrRF5CRcoZ/view?usp=sharing) [Slides](https://docs.google.com/presentation/d/1GJzILD_WdqbSbjPm6vJhVkhQPmkl1EefLLZFEJGcWII/edit#slide=id.p)
+Documentation: [Click here to for the paper](https://drive.google.com/file/d/1jovO0tzp3wQEpfthIY5dbDZrRF5CRcoZ/view?usp=sharing)
 
 Trained models: 
 <br/>
